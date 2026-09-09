@@ -1,1 +1,486 @@
-Boon Privacy Policy
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Privacy policy for Boon, a Chrome extension that manages open tabs and saved bookmarks together in a side panel.">
+<title>Privacy policy for Boon</title>
+
+<!--
+  ============================================================================
+  ONE SUBSTITUTION COMPLETES THIS PAGE
+  ============================================================================
+
+  This repository has no git remote yet, so the contact URL is not known. Every
+  place that needs it holds the token __BOON_REPO_SLUG__ and nothing else does.
+  Replace it with your GitHub slug in `owner/repo` form -- for example
+  `jane/boon` -- and the page is finished. From the repository root:
+
+      sed -i '' 's|__BOON_REPO_SLUG__|owner/repo|g' \
+        docs/privacy-policy.html docs/store-listing.md
+
+  (On Linux, `sed -i` without the empty-string argument. store-listing.md holds
+  a markdown copy of this text and carries the same token, so both are done at
+  once and the two stay in agreement.)
+
+  Then check the result, not the absence of the token -- the command rewrites
+  its own copies inside this comment along with the live one:
+
+      grep -o 'github.com/[^"]*/issues' docs/privacy-policy.html
+
+  That prints your issues URL exactly twice, once for the href and once for the
+  visible link text. Nothing else in the file matches it, including the line
+  above. Once you have run the substitution this whole comment is disposable;
+  delete it if you would rather the published source were only the policy.
+
+  The token is deliberately not a value read by script. This page runs no
+  JavaScript, so a missed substitution shows as visibly wrong text rather than
+  as a broken page.
+
+  ============================================================================
+  HOSTING -- GitHub Pages, serving this /docs folder
+  ============================================================================
+
+  1. Create the repository on GitHub and push this branch to it.
+  2. Settings -> Pages -> Build and deployment -> Source: "Deploy from a branch".
+  3. Branch: the one you pushed. Folder: /docs. Save.
+
+  The policy URL is then:
+
+      https://<owner>.github.io/<repo>/privacy-policy.html
+
+  Paste that into the Chrome Web Store dashboard under
+  Privacy practices -> Privacy policy.
+
+  Note: this repository's branch is `master`, not `main`. GitHub Pages accepts
+  any branch, so `master` works -- just select it in the branch dropdown. If
+  you would rather match GitHub's default, rename it before pushing.
+
+  A `.nojekyll` file sits beside this one. It matters: `docs/boon-plan.md`
+  contains `{{...}}` sequences that Jekyll reads as template syntax, and a
+  failed Jekyll build takes the whole site down -- including this page. With
+  `.nojekyll` the files are served exactly as committed and no build runs.
+
+  ============================================================================
+  THIS PAGE IS SELF-CONTAINED BY DESIGN
+  ============================================================================
+
+  No external stylesheet, no web font, no script, no image, no analytics. A
+  privacy policy that phoned home would undercut its own text. The styles below
+  are the whole presentation layer; every font named is one the reader's own
+  system already has. Keep it that way.
+-->
+
+<style>
+  :root {
+    /* From entrypoints/sidepanel/boon-logo-art.ts -- a light touch only. */
+    --boon-navy: #07154f;
+    --boon-blue: #0541b8;
+    --boon-coral: #fe8d8d;
+    --boon-rose: #ee587d;
+
+    --page: #fbfbfd;
+    --card: #ffffff;
+    --ink: #1c2033;
+    --ink-soft: #4d5470;
+    --rule: #e2e4ee;
+    --accent: var(--boon-blue);
+    --heading: var(--boon-navy);
+    --mark: #eef1fb;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0c0f1a;
+      --card: #141828;
+      --ink: #e6e8f2;
+      --ink-soft: #a2a8c2;
+      --rule: #262c42;
+      --accent: #8fb4ff;
+      --heading: #dfe4f7;
+      --mark: #1b2135;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    padding: 1.5rem 1.125rem 4rem;
+    background: var(--page);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    /* Long addresses and folder paths must not force a sideways scroll on a
+       narrow screen. */
+    overflow-wrap: break-word;
+  }
+
+  main {
+    max-width: 44rem;   /* ~72 characters, which is where prose reads easiest */
+    margin: 0 auto;
+  }
+
+  header {
+    border-bottom: 2px solid var(--boon-coral);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    color: var(--heading);
+    font-size: clamp(1.5rem, 5vw, 2.125rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0 0 0.5rem;
+  }
+
+  h2 {
+    color: var(--heading);
+    font-size: clamp(1.125rem, 3.4vw, 1.375rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 2.5rem 0 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+
+  .updated {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+  }
+
+  .lede {
+    margin: 1.25rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
+  }
+
+  p, ul, ol { margin: 0 0 1rem; }
+
+  ul { padding-left: 1.375rem; }
+
+  li { margin-bottom: 0.5rem; }
+
+  li > ul { margin-top: 0.5rem; margin-bottom: 0; }
+
+  strong { color: var(--heading); font-weight: 650; }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  a:hover { text-decoration-thickness: 2px; }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  code {
+    background: var(--mark);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+                 "Liberation Mono", monospace;
+    font-size: 0.875em;
+    /* A key name like chrome.storage.session must be allowed to break rather
+       than widen the page. */
+    overflow-wrap: anywhere;
+  }
+
+  .panel {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--boon-rose);
+    border-radius: 8px;
+    padding: 1rem 1.125rem 0.5rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .panel :last-child { margin-bottom: 0.5rem; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    color: var(--ink-soft);
+    font-size: 0.875rem;
+  }
+
+  footer p { margin-bottom: 0.5rem; }
+
+  @media (max-width: 26rem) {
+    body { padding: 1.25rem 0.9375rem 3rem; line-height: 1.6; }
+    ul { padding-left: 1.125rem; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; padding: 0; }
+    h2 { break-after: avoid; }
+    .panel { break-inside: avoid; }
+  }
+</style>
+</head>
+
+<body>
+<main>
+
+<header>
+  <h1>Privacy policy for Boon</h1>
+  <p class="updated">Last updated: <time datetime="2026-09-09">9 September 2026</time></p>
+  <p class="lede">
+    <strong>Boon</strong> is a Chrome extension that manages your open tabs and
+    your saved bookmarks together in a side panel. It is listed on the Chrome
+    Web Store as <code>boon</code>. This policy describes what it stores, what
+    it reads, and what it never does.
+  </p>
+</header>
+
+<h2>The short version</h2>
+
+<div class="panel">
+  <p>
+    Boon has no account, no server, and makes no network requests. Everything it
+    stores stays in the Chrome profile on the computer where you installed it.
+    Nothing is sold, shared, or transmitted to anyone, including the developer.
+    The developer cannot see any of it.
+  </p>
+</div>
+
+<h2>What Boon stores, and why</h2>
+
+<p>
+  All of this is written to Chrome's local extension storage
+  (<code>chrome.storage.local</code> and <code>chrome.storage.session</code>) on
+  your own computer.
+</p>
+
+<p>
+  <strong>1. Your settings.</strong> The colours you choose, your text size,
+  what clicking a saved page does, whether the archive is recording and for how
+  long, whether the drag diagnostics overlay is switched on, and which bookmarks
+  folder Boon is using. This exists so the panel looks and behaves the way you
+  left it.
+</p>
+
+<p>
+  <strong>2. Your archive of closed pages — this is browsing history.</strong>
+  When you close a tab, and when you delete a page you had saved, Boon records
+  that page's address, its title, the time, and (for a deleted bookmark) the
+  folder path it was filed under inside Boon. This is what lets the panel answer
+  “what was that page I just closed?” and offer it back to you as a clickable
+  list.
+</p>
+
+<ul>
+  <li>
+    It records tabs closed <strong>anywhere in Chrome</strong>, not only tabs
+    closed from inside Boon.
+  </li>
+  <li>
+    It is <strong>on by default</strong>. One switch, under
+    <strong>Settings → Archive closed tabs</strong>, stops it recording.
+    Turning it off does not delete what is already stored.
+  </li>
+  <li>
+    Entries are deleted automatically after a period you choose:
+    7, 30, 90 or 365 days, or never. The default is <strong>30 days</strong>.
+    Whatever you choose, the archive holds at most 2,000 entries, oldest
+    discarded first.
+  </li>
+  <li>
+    Only pages a click could reopen are recorded — <code>http</code>,
+    <code>https</code> and <code>file</code> addresses. Chrome's own pages,
+    extension pages, <code>about:blank</code>, <code>javascript:</code>,
+    <code>mailto:</code>, <code>data:</code>, <code>blob:</code> and
+    <code>ftp:</code> addresses are never stored.
+  </li>
+  <li>
+    Closing a tab with Boon's own minus control records nothing, because the
+    saved page it belongs to is still there.
+  </li>
+  <li>
+    You can delete any single entry with the cross beside it, or empty the whole
+    archive from the bin button in the archive header.
+  </li>
+</ul>
+
+<p>
+  <strong>3. Which folders you had open,</strong> and which saved rows Boon
+  created from a tab. This is display state, so that reopening the panel shows
+  you what you were looking at.
+</p>
+
+<p>
+  <strong>4. Short-lived tab and window information.</strong> A handful of small
+  records — the address and title of each open tab, which saved row belongs to
+  which tab, any names you have given tabs, and where a newly opened tab should
+  land — are held in session storage, which Chrome clears every time the browser
+  restarts.
+</p>
+
+<h2>Your saved pages are Chrome bookmarks</h2>
+
+<p>
+  Boon does not keep a private copy of the pages you save. It reads and writes
+  ordinary Chrome bookmarks in one ordinary bookmarks folder — “Boon” in Other
+  bookmarks by default, or any folder you choose. They are yours, they are
+  visible in Chrome's own bookmark manager, and they remain if you uninstall
+  Boon.
+</p>
+
+<h2>What Boon reads while it is running</h2>
+
+<p>
+  To draw the list of your open tabs, Boon reads each tab's title and address
+  from Chrome. It uses these to show the list, to match a saved page against a
+  tab that already has it open, and — if the archive is on — to record a closed
+  page as described above.
+</p>
+
+<p>
+  To show an icon beside a saved page, Boon asks Chrome for the favicon Chrome
+  has already cached for that address. This is served by Chrome from its own
+  local cache; Boon does not contact the website to fetch it, and receives
+  nothing but the image.
+</p>
+
+<p>
+  Boon requests no access to the content of any web page. It has no host
+  permissions and injects no scripts into pages, so it cannot read, alter, or
+  collect the text, images, form fields, or anything else inside the pages you
+  visit.
+</p>
+
+<h2>What Boon does not do</h2>
+
+<ul>
+  <li>
+    It does not transmit anything, anywhere. Boon makes no network requests of
+    any kind. There is no server, no API, no analytics, no telemetry, no crash
+    reporting, and no advertising.
+  </li>
+  <li>It does not sell, rent, or share your data. There is no recipient to share it with.</li>
+  <li>
+    It does not use Chrome's sync storage. Nothing is copied to your Google
+    account or to your other computers.
+  </li>
+  <li>
+    It contains no cloud or Google Drive sync. The published extension asks for
+    no sign-in permission and carries no code that could reach a cloud service.
+  </li>
+  <li>It does not track you across sites, build a profile, or target advertisements.</li>
+  <li>It does not run any code that was not shipped inside the extension package.</li>
+  <li>
+    It does not ask for, or hold, any personally identifying information: no
+    name, no email address, no account.
+  </li>
+</ul>
+
+<h2>When data leaves your computer</h2>
+
+<p>
+  Only when you ask, and only to a file you choose.
+  <strong>Settings → Backup → Save to file</strong> writes your settings and a
+  list of your saved pages to a JSON file in your downloads folder. It is
+  written only when you press that button, and it is the only way Boon exports
+  anything. <strong>Your archive of closed pages is not included in it.</strong>
+  What happens to the file afterwards is up to you. Boon does not upload it and
+  does not read it back unless you pick it yourself with Restore.
+</p>
+
+<h2>Deleting your data</h2>
+
+<ul>
+  <li><strong>One archive entry:</strong> the cross at the end of its row.</li>
+  <li><strong>The whole archive:</strong> the bin icon in the archive header.</li>
+  <li><strong>Stop recording:</strong> the switch under Settings → Archive closed tabs.</li>
+  <li>
+    <strong>Everything Boon stores:</strong> remove the extension from
+    <code>chrome://extensions</code>. Uninstalling deletes its local storage,
+    including the archive and all settings. Your bookmarks are not deleted,
+    because they belong to Chrome rather than to Boon; delete them in Chrome's
+    bookmark manager if you want them gone too.
+  </li>
+</ul>
+
+<h2>Children</h2>
+
+<p>
+  Boon is a browser utility. It is not directed at children and collects no
+  information about anyone, of any age.
+</p>
+
+<h2>Limited Use disclosure</h2>
+
+<div class="panel">
+  <p>
+    Boon's use of information received from Chrome APIs adheres to the
+    <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome
+    Web Store User Data Policy</a>, including the
+    <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Limited
+    Use</a> requirements.
+  </p>
+
+  <p>
+    Specifically: Boon collects web browsing activity — the addresses and titles
+    of tabs you close and saved pages you delete — only to provide the archive,
+    which is a user-facing feature described on Boon's Chrome Web Store listing
+    and displayed in Boon's own interface. That data is stored locally on your
+    device and is never transmitted. Boon does not transfer this or any other
+    user data to third parties; does not use it for advertising, ad targeting,
+    retargeting, personalisation, or any purpose unrelated to the feature above;
+    does not use it to determine creditworthiness or for lending purposes; and
+    does not allow any human to read it.
+  </p>
+</div>
+
+<h2>Changes</h2>
+
+<p>
+  If this policy changes, the date at the top changes with it, and material
+  changes will be noted in Boon's Chrome Web Store listing.
+</p>
+
+<h2>Contact</h2>
+
+<p>
+  Questions about this policy, or about Boon's handling of your data, can be
+  raised as an issue on Boon's repository:
+</p>
+
+<p>
+  <a href="https://github.com/__BOON_REPO_SLUG__/issues">https://github.com/__BOON_REPO_SLUG__/issues</a>
+</p>
+
+<p>
+  Issues are public. Please do not include anything private in one — there is
+  nothing about your Boon data that the developer could look up anyway.
+</p>
+
+<footer>
+  <p>
+    This policy applies to the Chrome extension <strong>Boon</strong>
+    (listed as <code>boon</code>) and to nothing else.
+  </p>
+  <p>
+    This page loads no fonts, scripts, images, stylesheets, or trackers from
+    anywhere. Reading it sends no request to any third party.
+  </p>
+</footer>
+
+</main>
+</body>
+</html>
